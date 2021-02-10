@@ -8,4 +8,5 @@
     <string name="subscriber_title">Subscriber</string>
     <string name="subscriber_inserted_successfully">Subscriber was sucessfully inserted</string>
     <string name="subscriber_error_to_insert">There was an error when inserting Subscriber</string>
+    <string name="add_button">add button</string>
 </resources>
