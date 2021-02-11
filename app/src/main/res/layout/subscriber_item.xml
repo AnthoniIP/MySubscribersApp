@@ -20,12 +20,14 @@
         android:paddingBottom="8dp">
 
         <TextView
+            android:id="@+id/text_subscriber_name"
             tools:text="Anthoni Ipiranga"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/text_subscriber_email"
             android:layout_marginTop="8dp"
             tools:text = "anthoni.ipiranga@gmail.com"
             android:layout_width="wrap_content"
