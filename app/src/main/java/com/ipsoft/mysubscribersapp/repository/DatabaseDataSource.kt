@@ -40,7 +40,7 @@ class DatabaseDataSource(
         subscriberDao.deleteAll()
     }
 
-    override suspend fun getAllSubscribers(): LiveData<List<SubscriberEntity>> {
+    suspend fun getAllSubscribers(): LiveData<List<SubscriberEntity>> {
         return subscriberDao.getAll()
     }
 }
