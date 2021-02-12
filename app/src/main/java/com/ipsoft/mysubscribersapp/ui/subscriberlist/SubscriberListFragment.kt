@@ -13,6 +13,7 @@ import com.ipsoft.mysubscribersapp.R
 import com.ipsoft.mysubscribersapp.data.db.AppDatabase
 import com.ipsoft.mysubscribersapp.data.db.dao.SubscriberDao
 import com.ipsoft.mysubscribersapp.databinding.SubscriberListFragmentBinding
+import com.ipsoft.mysubscribersapp.extension.navigateWithAnimations
 import com.ipsoft.mysubscribersapp.repository.DatabaseDataSource
 import com.ipsoft.mysubscribersapp.repository.SubscriberRepository
 import com.ipsoft.mysubscribersapp.ui.subscriber.SubscriberListAdapter
@@ -63,7 +64,7 @@ class SubscriberListFragment : Fragment() {
     }
     private fun configureViewListeners() {
         binding.fabAddSubscriber.setOnClickListener {
-            findNavController().navigate(R.id.subscriberFragment)
+            findNavController().navigateWithAnimations(R.id.subscriberFragment)
         }
     }
 
