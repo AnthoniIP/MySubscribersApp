@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.ipsoft.mysubscribersapp.R
 import com.ipsoft.mysubscribersapp.data.db.AppDatabase
 import com.ipsoft.mysubscribersapp.data.db.dao.SubscriberDao
 import com.ipsoft.mysubscribersapp.databinding.SubscriberListFragmentBinding
@@ -43,6 +45,7 @@ class SubscriberListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         observeViewModelEvents()
+        configureViewListeners()
 
     }
 
@@ -57,6 +60,11 @@ class SubscriberListFragment : Fragment() {
         }
 
 
+    }
+    private fun configureViewListeners() {
+        binding.fabAddSubscriber.setOnClickListener {
+            findNavController().navigate(R.id.subscriberFragment)
+        }
     }
 
 

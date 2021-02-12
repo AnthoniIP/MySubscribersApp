@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/subscriberListFragment"
         android:name="com.ipsoft.mysubscribersapp.ui.subscriberlist.SubscriberListFragment"
-        android:label="subscriber_list_fragment"
+        android:label="@string/subscribers"
         tools:layout="@layout/subscriber_list_fragment" />
     <fragment
         android:id="@+id/subscriberFragment"

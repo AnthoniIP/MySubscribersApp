@@ -14,6 +14,7 @@
      tools:listitem="@layout/subscriber_item"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddSubscriber"
         android:layout_width="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
