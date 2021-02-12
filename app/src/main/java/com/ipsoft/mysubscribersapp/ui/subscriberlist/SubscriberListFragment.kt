@@ -5,8 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.ipsoft.mysubscribersapp.data.db.entity.SubscriberEntity
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.ipsoft.mysubscribersapp.data.db.AppDatabase
+import com.ipsoft.mysubscribersapp.data.db.dao.SubscriberDao
 import com.ipsoft.mysubscribersapp.databinding.SubscriberListFragmentBinding
+import com.ipsoft.mysubscribersapp.repository.DatabaseDataSource
+import com.ipsoft.mysubscribersapp.repository.SubscriberRepository
 import com.ipsoft.mysubscribersapp.ui.subscriber.SubscriberListAdapter
 
 class SubscriberListFragment : Fragment() {
@@ -37,18 +43,19 @@ class SubscriberListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         observeViewModelEvents()
-        
+
     }
+
     private fun observeViewModelEvents() {
-        viewModel.allSubscribersEvent.observe(viewLifeCycleOwner) { allSubscribers ->
+        viewModel.allSubscribersEvent.observe(viewLifecycleOwner) { allSubscribers ->
             val subscriberListAdapter = SubscriberListAdapter(allSubscribers)
-            with(recyclerSubscriber){
-            setHasFixedSize(true)
-            adapter = subscriberListAdapter
+            with(binding.recyclerSubscriber) {
+                setHasFixedSize(true)
+                adapter = subscriberListAdapter
+            }
+
         }
 
-            }
-        
 
     }
 

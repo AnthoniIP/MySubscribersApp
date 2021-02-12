@@ -33,11 +33,11 @@ class SubscriberListAdapter(
 
     inner class SubscriberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewSubscriberName: TextView = binding.textSubscriberName
-        private val textViewSuscriberEmail: TextView = binding.textSubscriberEmail
+        private val textViewSubscriberEmail: TextView = binding.textSubscriberEmail
         fun bindView(subscriber: SubscriberEntity) {
 
             textViewSubscriberName.text = subscriber.name
-            textViewSuscriberEmail.text = subscriber.email
+            textViewSubscriberEmail.text = subscriber.email
 
         }
 
