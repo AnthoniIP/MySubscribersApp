@@ -9,10 +9,20 @@
         android:id="@+id/subscriberListFragment"
         android:name="com.ipsoft.mysubscribersapp.ui.subscriberlist.SubscriberListFragment"
         android:label="@string/subscribers"
-        tools:layout="@layout/subscriber_list_fragment" />
+        tools:layout="@layout/subscriber_list_fragment" >
+        <action
+            android:id="@+id/action_subscriberListFragment_to_subscriberFragment"
+            app:destination="@id/subscriberFragment" />
+    </fragment>
     <fragment
         android:id="@+id/subscriberFragment"
         android:name="com.ipsoft.mysubscribersapp.ui.subscriber.SubscriberFragment"
         android:label="@string/subscriber_title"
-        tools:layout="@layout/subscriber_fragment" />
+        tools:layout="@layout/subscriber_fragment" >
+        <argument
+            android:defaultValue="@null"
+            android:name="subscriber"
+            app:argType="com.ipsoft.mysubscribersapp.data.db.entity.SubscriberEntity"
+            app:nullable="true" />
+    </fragment>
 </navigation>

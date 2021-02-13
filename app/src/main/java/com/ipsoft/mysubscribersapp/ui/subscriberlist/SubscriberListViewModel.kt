@@ -12,12 +12,13 @@ class SubscriberListViewModel(
     private val repository: SubscriberRepository
 ) : ViewModel() {
 
-    private val _allSuscribersEvent = MutableLiveData<List<SubscriberEntity>>()
+    private val _allSubscribersEvent = MutableLiveData<List<SubscriberEntity>>()
     val allSubscribersEvent: LiveData<List<SubscriberEntity>>
-        get() = _allSuscribersEvent
+        get() = _allSubscribersEvent
 
     fun getSubscribers() = viewModelScope.launch {
-        _allSuscribersEvent.postValue(repository.getAllSubscribers())
+        _allSubscribersEvent.postValue(repository.getAllSubscribers())
     }
+
 
 }

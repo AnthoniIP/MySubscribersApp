@@ -18,7 +18,10 @@ import com.ipsoft.mysubscribersapp.databinding.SubscriberItemBinding
 class SubscriberListAdapter(
     private val subscribers: List<SubscriberEntity>
 ) : RecyclerView.Adapter<SubscriberListAdapter.SubscriberViewHolder>() {
+
     private lateinit var binding: SubscriberItemBinding
+    var onItemClick: ((entity: SubscriberEntity) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubscriberViewHolder {
         binding = SubscriberItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val viewRoot = binding.root
@@ -34,11 +37,15 @@ class SubscriberListAdapter(
     inner class SubscriberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewSubscriberName: TextView = binding.textSubscriberName
         private val textViewSubscriberEmail: TextView = binding.textSubscriberEmail
+
         fun bindView(subscriber: SubscriberEntity) {
 
             textViewSubscriberName.text = subscriber.name
             textViewSubscriberEmail.text = subscriber.email
 
+            itemView.setOnClickListener {
+                onItemClick?.invoke(subscriber)
+            }
         }
 
     }

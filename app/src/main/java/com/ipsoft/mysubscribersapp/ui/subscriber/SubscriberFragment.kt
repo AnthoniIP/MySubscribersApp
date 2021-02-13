@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
+import com.ipsoft.mysubscribersapp.R
 import com.ipsoft.mysubscribersapp.data.db.AppDatabase
 import com.ipsoft.mysubscribersapp.data.db.dao.SubscriberDao
 import com.ipsoft.mysubscribersapp.databinding.SubscriberFragmentBinding
@@ -33,6 +35,7 @@ class SubscriberFragment : Fragment() {
             }
         }
     }
+    private val args: SubscriberFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +54,12 @@ class SubscriberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        args.subscriber?.let { subscriber ->
+            binding.buttonSubscriber.text = getString(R.string.subscriber_button_update)
+            binding.inputName.setText(subscriber.name)
+            binding.inputEmail.setText(subscriber.email)
+
+        }
         observeEvents()
         setListeners()
     }
@@ -62,6 +71,11 @@ class SubscriberFragment : Fragment() {
                     clearFields()
                     hideKeyboard()
                     requireView().requestFocus()
+                    findNavController().popBackStack()
+                }
+                is SubscriberViewModel.SubscriberState.Updated -> {
+                    clearFields()
+                    hideKeyboard()
                     findNavController().popBackStack()
                 }
             }
@@ -89,7 +103,7 @@ class SubscriberFragment : Fragment() {
             val name = binding.inputName.text.toString()
             val email = binding.inputEmail.text.toString()
 
-            viewModel.addSubscriber(name, email)
+            viewModel.addOrUpdateSubscriber(name, email, args.subscriber?.id ?: 0)
         }
     }
 
