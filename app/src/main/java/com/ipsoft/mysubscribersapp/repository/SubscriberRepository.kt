@@ -1,6 +1,5 @@
 package com.ipsoft.mysubscribersapp.repository
 
-import androidx.lifecycle.LiveData
 import com.ipsoft.mysubscribersapp.data.db.entity.SubscriberEntity
 
 /**

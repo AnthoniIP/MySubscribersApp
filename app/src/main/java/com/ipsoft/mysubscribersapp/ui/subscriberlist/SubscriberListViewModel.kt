@@ -9,7 +9,7 @@ import com.ipsoft.mysubscribersapp.repository.SubscriberRepository
 import kotlinx.coroutines.launch
 
 class SubscriberListViewModel(
-	private val repository: SubscriberRepository
+    private val repository: SubscriberRepository
 ) : ViewModel() {
 
     private val _allSuscribersEvent = MutableLiveData<List<SubscriberEntity>>()

@@ -67,6 +67,7 @@ class SubscriberListFragment : Fragment() {
 
 
     }
+
     private fun configureViewListeners() {
         binding.fabAddSubscriber.setOnClickListener {
             findNavController().navigateWithAnimations(R.id.subscriberFragment)

@@ -25,13 +25,14 @@
             android:hint="@string/subscriber_name_hint"
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/input_layout_name">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -44,10 +45,10 @@
 
     <Button
         android:id="@+id/button_subscriber"
-        android:text="@string/subscriber_button"
-        android:layout_marginTop="16dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/subscriber_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout_email" />
