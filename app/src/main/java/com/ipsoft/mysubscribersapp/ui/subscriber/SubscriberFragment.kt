@@ -59,6 +59,8 @@ class SubscriberFragment : Fragment() {
             binding.inputName.setText(subscriber.name)
             binding.inputEmail.setText(subscriber.email)
 
+            binding.buttonDelete.visibility = View.VISIBLE
+
         }
         observeEvents()
         setListeners()
@@ -67,15 +69,12 @@ class SubscriberFragment : Fragment() {
     private fun observeEvents() {
         viewModel.subscriberStateEventData.observe(viewLifecycleOwner) { subscriberState ->
             when (subscriberState) {
-                is SubscriberViewModel.SubscriberState.Inserted -> {
+                is SubscriberViewModel.SubscriberState.Inserted,
+                is SubscriberViewModel.SubscriberState.Updated,
+                is SubscriberViewModel.SubscriberState.Deleted -> {
                     clearFields()
                     hideKeyboard()
                     requireView().requestFocus()
-                    findNavController().popBackStack()
-                }
-                is SubscriberViewModel.SubscriberState.Updated -> {
-                    clearFields()
-                    hideKeyboard()
                     findNavController().popBackStack()
                 }
             }
@@ -104,6 +103,9 @@ class SubscriberFragment : Fragment() {
             val email = binding.inputEmail.text.toString()
 
             viewModel.addOrUpdateSubscriber(name, email, args.subscriber?.id ?: 0)
+        }
+        binding.buttonDelete.setOnClickListener {
+            viewModel.removeSubscriber(args.subscriber?.id ?: 0)
         }
     }
 
