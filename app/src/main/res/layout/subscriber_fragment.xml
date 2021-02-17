@@ -56,7 +56,7 @@
 
     <Button
         android:id="@+id/button_delete"
-        android:background="@android:color/holo_red_dark"
+        app:backgroundTint="@android:color/holo_red_dark"
         android:textColor="@android:color/white"
         android:text="@string/subscriber_button_delete"
         android:layout_width="0dp"
